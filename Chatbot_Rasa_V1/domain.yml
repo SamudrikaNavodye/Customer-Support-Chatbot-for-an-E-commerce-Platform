@@ -1,0 +1,91 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - return_policy
+  - order_status
+  - provide_order_number
+  - product_recommendation
+  - provide_product_type
+  - provide_budget
+  - cancel_order
+
+entities:
+  - order_number
+  - product_type
+  - budget
+
+slots:
+  order_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  product_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: product_type
+
+  budget:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: budget
+
+  confirm_cancellation:
+    type: bool
+    mappings:
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up!"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye! Have a great day!"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_order_status:
+    - text: "Please provide your order number, and I'll check the status for you."
+
+  utter_return_policy:
+    - text: "You can return items within 30 days of purchase. Visit our return policy page for more details."
+
+  utter_product_recommendation:
+    - text: "Please share your preferences or budget, and I'll suggest a few options."
+
+  utter_ask_order_number:
+    - text: "Please provide your order number so I can check the status."
+
+  utter_ask_cancel_confirmation:
+    - text: "Are you sure you want to cancel your order? Type 'yes' to confirm or 'no' to abort."
+
+actions:
+  - action_check_order_status
+  - action_recommend_product
+  - action_verify_and_check_order_status
+  - action_cancel_order
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

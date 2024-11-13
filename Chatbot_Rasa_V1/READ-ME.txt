@@ -1,0 +1,17 @@
+pip install rasa
+
+rasa init
+
+rasa train
+
+rasa shell
+
+rasa run --enable-api --cors "*"
+		
+		-- Then run on localhost:5005
+
+python run_ui.py
+            -- Run on the assigned port
+
+
+

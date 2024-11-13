@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-budget",
+      "2": "I-budget",
+      "3": "L-budget",
+      "4": "U-budget",
+      "5": "B-email",
+      "6": "I-email",
+      "7": "L-email",
+      "8": "U-email",
+      "9": "B-order_date",
+      "10": "I-order_date",
+      "11": "L-order_date",
+      "12": "U-order_date",
+      "13": "B-order_number",
+      "14": "I-order_number",
+      "15": "L-order_number",
+      "16": "U-order_number",
+      "17": "B-product_type",
+      "18": "I-product_type",
+      "19": "L-product_type",
+      "20": "U-product_type",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-budget": 1,
+      "I-budget": 2,
+      "L-budget": 3,
+      "U-budget": 4,
+      "B-email": 5,
+      "I-email": 6,
+      "L-email": 7,
+      "U-email": 8,
+      "B-order_date": 9,
+      "I-order_date": 10,
+      "L-order_date": 11,
+      "U-order_date": 12,
+      "B-order_number": 13,
+      "I-order_number": 14,
+      "L-order_number": 15,
+      "U-order_number": 16,
+      "B-product_type": 17,
+      "I-product_type": 18,
+      "L-product_type": 19,
+      "U-product_type": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

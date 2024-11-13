@@ -1,0 +1,100 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: track order
+  steps:
+    - intent: order_status
+    - action: utter_order_status
+
+- story: ask return policy
+  steps:
+    - intent: return_policy
+    - action: utter_return_policy
+
+- story: ask for recommendation
+  steps:
+    - intent: product_recommendation
+    - action: utter_product_recommendation
+
+- story: track order with order number
+  steps:
+    - intent: order_status
+    - action: utter_ask_order_number
+    - intent: provide_order_number
+    - slot_was_set:
+        - order_number: "12345"  # example placeholder
+    - action: action_check_order_status
+
+- story: track order without order number
+  steps:
+    - intent: order_status
+    - action: utter_ask_order_number
+
+
+- story: check order status with order number
+  steps:
+    - intent: order_status
+    - action: utter_ask_order_number
+    - intent: provide_order_number
+    - slot_was_set:
+        - order_number: "12345"
+    - action: action_check_order_status
+
+
+- story: check order status
+  steps:
+    - intent: order_status
+    - action: utter_ask_order_number
+    - intent: provide_order_number
+    - slot_was_set:
+        - order_number: "12345"
+    - action: action_check_order_status
+
+- story: user asks for product recommendation
+  steps:
+    - intent: provide_product_type
+    - slot_was_set:
+        - product_type: "laptop"
+    - intent: provide_budget
+    - slot_was_set:
+        - budget: "500"
+    - action: action_recommend_product
+
+
+- story: cancel order with confirmation
+  steps:
+    - intent: cancel_order
+    - action: utter_ask_cancel_confirmation
+    - intent: affirm
+    - slot_was_set:
+        - confirm_cancellation: true
+    - action: action_cancel_order
+
